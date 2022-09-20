@@ -1,5 +1,10 @@
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = () => ({
-	value: Math.random()
-});
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export const load: PageServerLoad = async () => {
+	await delay(3000);
+	return {
+		value: Math.random()
+	};
+};
